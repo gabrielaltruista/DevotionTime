@@ -5,3 +5,9 @@
 !*.html
 !*.png
 !.gitignore
+
+# CSS and JS directories
+!css/
+!css/*.css
+!js/
+!js/*.js
