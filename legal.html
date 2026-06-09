@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevotionTime — Termos, Privacidade e Suporte</title>
+  <meta name="description" content="Termos de Serviço, Política de Privacidade e informações de suporte do DevotionTime." />
+  <link rel="icon" type="image/png" href="Icon.png" />
+  <link rel="apple-touch-icon" href="Icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold:    #F2A84C;
+      --gold-bg: rgba(242, 168, 76, 0.09);
+      --black:   #0c0c0c;
+      --gray:    #444444;
+      --muted:   #909090;
+      --border:  #e6e6e6;
+      --white:   #ffffff;
+      --off:     #f9f9f9;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 54px;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .nav-brand .cross { color: var(--gold); font-size: 0.95rem; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.76rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      transition: color 0.18s, background 0.18s;
+    }
+    .nav-links a:hover { color: var(--black); background: var(--off); }
+    .nav-back {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.18s;
+    }
+    .nav-back:hover { color: var(--black); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 6px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+    .page-header-inner { max-width: 620px; margin: 0 auto; }
+    .page-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.9rem;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .page-header p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 4.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section.alt { background: var(--off); }
+    .section:last-of-type { border-bottom: none; }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-bg);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+    }
+    .section-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── LEGAL TEXT ── */
+    .legal h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--black);
+      margin: 2.25rem 0 0.6rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .legal h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .legal p { margin-bottom: 0.9rem; color: var(--gray); font-size: 0.92rem; }
+    .legal ul, .legal ol { padding-left: 1.4rem; margin-bottom: 0.9rem; color: var(--gray); font-size: 0.92rem; }
+    .legal li { margin-bottom: 0.3rem; }
+    .legal a { color: var(--black); text-underline-offset: 2px; }
+    .legal a:hover { color: var(--gold); }
+    .legal strong { font-weight: 500; color: var(--black); }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: var(--gold-bg);
+      border-left: 2.5px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.35rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── TABLE ── */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    thead { background: var(--black); }
+    thead th {
+      color: rgba(255,255,255,0.8);
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.05em;
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: var(--off); }
+    td { padding: 0.7rem 1rem; color: var(--gray); vertical-align: top; font-size: 0.88rem; }
+    td:first-child { font-weight: 400; color: var(--black); }
+
+    /* ── PROVIDER CARDS ── */
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .provider-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      background: var(--white);
+    }
+    .provider-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.45rem;
+    }
+    .provider-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.55; }
+    .provider-card a { font-size: 0.79rem; color: var(--gold); text-decoration: none; }
+    .provider-card a:hover { text-decoration: underline; }
+
+    /* ── PERMISSIONS ── */
+    .perm-list { list-style: none; padding: 0; margin: 1rem 0; }
+    .perm-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem 1rem;
+      align-items: start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .perm-item:last-child { border-bottom: none; }
+    .perm-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gold-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .perm-item h4 { font-size: 0.88rem; font-weight: 500; color: var(--black); margin-bottom: 0.2rem; }
+    .perm-item p { font-size: 0.84rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+    /* ── RIGHTS ── */
+    .rights-list { list-style: none; padding: 0; margin: 1rem 0; }
+    .rights-item {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--gray);
+    }
+    .rights-item:last-child { border-bottom: none; }
+    .rights-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    /* ── STEPS ── */
+    .steps { list-style: none; padding: 0; margin: 1.25rem 0; }
+    .steps li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.12rem;
+    }
+    .steps li p { font-size: 0.9rem; color: var(--gray); line-height: 1.55; margin: 0; }
+
+    /* ── INFO CARDS ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem;
+      background: var(--white);
+    }
+    .info-card .icon { font-size: 1.35rem; margin-bottom: 0.7rem; }
+    .info-card h4 { font-size: 0.86rem; font-weight: 500; color: var(--black); margin-bottom: 0.3rem; }
+    .info-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+    /* ── ALERT ── */
+    .alert {
+      background: #fffbf2;
+      border: 1px solid rgba(242, 168, 76, 0.4);
+      border-radius: 10px;
+      padding: 0.9rem 1.2rem;
+      font-size: 0.86rem;
+      color: var(--gray);
+      margin: 1.25rem 0;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .alert-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--black);
+      border-radius: 16px;
+      padding: 2.5rem;
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    .contact-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .contact-card > div:first-child > p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+    }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-size: 0.88rem;
+      color: var(--white);
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .contact-email:hover { background: rgba(255,255,255,0.14); }
+    .contact-topics { list-style: none; padding: 0; margin-top: 1.25rem; }
+    .contact-topics li {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      padding: 0.18rem 0;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .contact-topics li::before { content: '→'; color: var(--gold); opacity: 0.8; }
+    .contact-meta {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      min-width: 140px;
+    }
+    .contact-meta .label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.4rem;
+    }
+    .contact-meta .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .footer-brand .cross { color: var(--gold); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 0.77rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .footer-links a:hover { color: var(--black); }
+    .footer-copy { font-size: 0.77rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 54px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 0.75rem 1rem; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 0.82rem; padding: 0.5rem 0.75rem; }
+      .nav-toggle { display: flex; }
+      .section { padding: 3rem 1.5rem; }
+      .contact-card { grid-template-columns: 1fr; }
+      .contact-meta { text-align: left; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="cross">✝</span>
+      DevotionTime
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#termos">Termos</a></li>
+      <li><a href="#privacidade">Privacidade</a></li>
+      <li><a href="#assinatura">Assinatura</a></li>
+      <li><a href="#exclusao">Exclusão de Dados</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" role="button" tabindex="0" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow">DevotionTime · iOS 17+</span>
+    <h1>Termos, Privacidade e Suporte</h1>
+    <p>Versão 1.0 &nbsp;·&nbsp; Vigência: 28 de maio de 2026 &nbsp;·&nbsp; Bundle ID: gabrielaltruist.DevotionTime</p>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     1. TERMOS DE SERVIÇO
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="termos">
+  <div class="wrapper">
+    <span class="section-badge">EULA</span>
+    <h2 class="section-title">Termos de Serviço</h2>
+    <p class="section-date">Vigência: 28 de maio de 2026</p>
+
+    <div class="legal">
+
+      <h3>1. Aceitação dos Termos</h3>
+      <p>Ao baixar, acessar ou usar o DevotionTime ("o Aplicativo"), você concorda com estes Termos de Serviço. Se não concordar com qualquer parte destes termos, não utilize o Aplicativo.</p>
+
+      <h3>2. Licença de Uso</h3>
+      <p>O DevotionTime concede a você uma licença limitada, não exclusiva, não transferível e revogável para usar o Aplicativo em dispositivos iOS de sua propriedade ou sob seu controle, em conformidade com estes Termos e com as regras da Apple App Store.</p>
+
+      <h3>3. Elegibilidade</h3>
+      <p>Você declara ter pelo menos 13 anos de idade ou a idade mínima exigida em seu país para consentir com o processamento de dados. Se você for menor de idade, um dos pais ou responsável legal deve aceitar estes Termos em seu nome.</p>
+
+      <h3>4. Conta de Usuário</h3>
+      <p>O DevotionTime <strong>não exige criação de conta</strong>. Não coletamos nome, email, telefone ou qualquer dado de cadastro. Todo o conteúdo gerado por você — alarmes, registros de devocionais, orações pessoais — é armazenado <strong>exclusivamente no seu dispositivo</strong> e nunca é enviado a nossos servidores.</p>
+
+      <h3>5. Plano Gratuito vs. Premium</h3>
+      <p><strong>Plano Gratuito</strong> — inclui:</p>
+      <ul>
+        <li>Máximo de 1 alarme de oração</li>
+        <li>Máximo de 7 sessões devocionais completadas</li>
+      </ul>
+      <p><strong>Plano Premium (assinatura)</strong> — desbloqueia:</p>
+      <ul>
+        <li>Alarmes ilimitados</li>
+        <li>Sessões devocionais ilimitadas</li>
+        <li>Bloqueio de apps durante o devocional (Screen Time)</li>
+        <li>Todo o conteúdo devocional para 365 dias</li>
+      </ul>
+      <p>O Premium está disponível nas modalidades <strong>Mensal</strong> (renovação automática) e <strong>Vitalício</strong> (pagamento único). Assinaturas são gerenciadas pela RevenueCat e processadas pela Apple App Store.</p>
+      <p><strong>Cancelamento:</strong> a qualquer momento em <em>Ajustes &rsaquo; [seu nome] &rsaquo; Assinaturas &rsaquo; DevotionTime</em>. O acesso Premium permanece ativo até o fim do período pago. Nenhum reembolso é fornecido por períodos não utilizados.</p>
+      <p><strong>Restauração de compras:</strong> caso troque de dispositivo ou reinstale o Aplicativo, utilize "Restaurar Compras" na tela de assinatura para reativar seu acesso.</p>
+
+      <h3>6. Conteúdo do Aplicativo</h3>
+      <p>O conteúdo devocional diário (orações, reflexões, versículos) é fornecido pelo DevotionTime e pode ser atualizado periodicamente. Citações bíblicas são de domínio público ou utilizadas sob licença adequada. O usuário não tem permissão para republicar, revender ou distribuir o conteúdo do Aplicativo sem autorização expressa.</p>
+
+      <h3>7. Conduta do Usuário</h3>
+      <p>Você concorda em não:</p>
+      <ul>
+        <li>Utilizar o Aplicativo para qualquer fim ilegal ou não autorizado;</li>
+        <li>Tentar extrair, realizar engenharia reversa ou modificar o código do Aplicativo;</li>
+        <li>Interferir com o funcionamento do Aplicativo ou dos serviços de Firebase/RevenueCat.</li>
+      </ul>
+
+      <h3>8. Propriedade Intelectual</h3>
+      <p>O DevotionTime, seu nome, logotipo, design, interface e conteúdo original são propriedade exclusiva de Gabriel Oliveira. Estes Termos não concedem qualquer direito de propriedade intelectual sobre o Aplicativo, exceto a licença limitada de uso descrita na cláusula 2.</p>
+
+      <h3>9. Limitação de Responsabilidade</h3>
+      <p>O Aplicativo é fornecido "como está", sem garantias de qualquer tipo, expressas ou implícitas. Na extensão máxima permitida por lei, Gabriel Oliveira não se responsabiliza por danos indiretos, incidentais, especiais ou consequenciais decorrentes do uso ou da impossibilidade de uso do Aplicativo.</p>
+
+      <h3>10. Modificações dos Termos</h3>
+      <p>Estes Termos podem ser atualizados periodicamente. Notificaremos sobre alterações significativas através do Aplicativo. O uso continuado após as alterações constitui aceitação dos novos termos.</p>
+
+      <h3>11. Lei Aplicável</h3>
+      <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Qualquer disputa será resolvida nos foros da comarca competente no Brasil, com renúncia expressa a qualquer outro foro, por mais privilegiado que seja.</p>
+
+      <h3>12. Contato</h3>
+      <p>Para questões sobre estes Termos de Serviço, entre em contato:<br>
+      <a href="mailto:contato@altruistlabs.com.br">contato@altruistlabs.com.br</a></p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     2. POLÍTICA DE PRIVACIDADE
+══════════════════════════════════════════════════════════ -->
+<section class="section alt" id="privacidade">
+  <div class="wrapper">
+    <span class="section-badge">LGPD &amp; App Store</span>
+    <h2 class="section-title">Política de Privacidade</h2>
+    <p class="section-date">Vigência: 28 de maio de 2026</p>
+
+    <div class="summary-box">
+      <strong>Resumo:</strong> Coletamos o mínimo possível de dados. A maior parte dos seus dados fica apenas no seu dispositivo. <strong>Não vendemos seus dados.</strong> Não usamos rastreadores de terceiros além dos serviços essenciais descritos abaixo.
+    </div>
+
+    <div class="legal">
+
+      <h3>1. Dados que NÃO Coletamos</h3>
+      <p>O DevotionTime <strong>não</strong> coleta nem processa:</p>
+      <ul>
+        <li>Nome, email, telefone ou endereço</li>
+        <li>Dados de localização (GPS)</li>
+        <li>Contatos do dispositivo</li>
+        <li>Fotos ou vídeos (a seleção de foto para compartilhamento usa o seletor nativo do iOS e nunca é armazenada por nós)</li>
+        <li>Dados biométricos (Face ID / Touch ID)</li>
+        <li>Dados de saúde ou fitness</li>
+        <li>Histórico de navegação</li>
+        <li>ID de publicidade (IDFA)</li>
+      </ul>
+
+      <h3>2. Dados Armazenados Localmente (apenas no seu dispositivo)</h3>
+      <p>Os dados abaixo ficam <strong>exclusivamente no seu iPhone ou iPad</strong> e nunca são transmitidos a nossos servidores:</p>
+
+      <div class="data-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Dado</th>
+              <th>Local de armazenamento</th>
+              <th>Finalidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alarmes configurados (label, horário, dias da semana)</td><td>SwiftData</td><td>Notificações de oração</td></tr>
+            <tr><td>Registros de devocionais concluídos (data, palavras, tempo)</td><td>SwiftData</td><td>Cálculo de streaks e histórico</td></tr>
+            <tr><td>Marcos (milestones) conquistados</td><td>SwiftData</td><td>Gamificação e compartilhamento</td></tr>
+            <tr><td>Idioma selecionado</td><td>UserDefaults</td><td>Exibição na língua escolhida</td></tr>
+            <tr><td>Status Premium</td><td>UserDefaults</td><td>Controle de acesso a recursos</td></tr>
+            <tr><td>Data do último devocional</td><td>UserDefaults</td><td>Lembrete de streak</td></tr>
+            <tr><td>Status do onboarding</td><td>UserDefaults</td><td>Controle de fluxo de boas-vindas</td></tr>
+            <tr><td>Preferências de bloqueio de apps</td><td>UserDefaults</td><td>Bloqueio de foco (Screen Time)</td></tr>
+            <tr><td>Cache de conteúdo devocional</td><td>UserDefaults</td><td>Uso offline (até 20 itens por idioma)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert">
+        <span class="alert-icon">ℹ</span>
+        <span>Para apagar todos os dados locais, <strong>delete o Aplicativo</strong> do seu dispositivo. Isso removerá permanentemente todos os dados armazenados pelo DevotionTime.</span>
+      </div>
+
+      <h3>3. Dados Compartilhados com Terceiros</h3>
+      <p>O DevotionTime utiliza apenas os serviços essenciais abaixo:</p>
+
+      <div class="provider-grid">
+        <div class="provider-card">
+          <h4>Firebase (Google)</h4>
+          <p><strong>Analytics:</strong> eventos anônimos de uso. ID de instalação anônimo — nunca nome ou email. Retenção: 14 meses.<br><br>
+          <strong>Crashlytics:</strong> relatórios de crash (modelo, iOS, stack trace). Retenção: 90 dias.<br><br>
+          <strong>Firestore:</strong> apenas <em>leitura</em> de conteúdo devocional. Nenhum dado do usuário é escrito.</p>
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google →</a>
+        </div>
+        <div class="provider-card">
+          <h4>RevenueCat</h4>
+          <p>Recibos de compra e status de assinatura, apenas para verificar elegibilidade Premium. Não recebe nome, email ou dados pessoais — somente identificador anônimo do dispositivo.</p>
+          <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Política da RevenueCat →</a>
+        </div>
+        <div class="provider-card">
+          <h4>Apple (App Store)</h4>
+          <p>Processamento de pagamentos exclusivo. A Apple compartilha conosco apenas a confirmação de compra (recibo), sem dados de cartão ou pagamento.</p>
+          <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Política da Apple →</a>
+        </div>
+      </div>
+
+      <h3>4. Permissões do Dispositivo</h3>
+      <ul class="perm-list">
+        <li class="perm-item">
+          <div class="perm-icon">🔔</div>
+          <div>
+            <h4>Notificações</h4>
+            <p>Solicitada ao criar o primeiro alarme. Utilizada para alertar sobre o horário de oração e enviar o lembrete diário de streak às 20h. Pode ser desativada em <em>Ajustes &rsaquo; Notificações &rsaquo; DevotionTime</em>.</p>
+          </div>
+        </li>
+        <li class="perm-item">
+          <div class="perm-icon">🎯</div>
+          <div>
+            <h4>Screen Time (FamilyControls)</h4>
+            <p>Solicitada durante o onboarding ou na aba Foco. Permite bloquear apps selecionados durante o devocional para evitar distrações. A seleção de apps permanece <strong>apenas no seu dispositivo</strong> — a Apple não compartilha esses dados conosco. Pode ser desativada em <em>Ajustes &rsaquo; DevotionTime</em>.</p>
+          </div>
+        </li>
+        <li class="perm-item">
+          <div class="perm-icon">🖼</div>
+          <div>
+            <h4>Biblioteca de Fotos (leitura)</h4>
+            <p>Solicitada ao compartilhar um marco (milestone). Usada para personalizar a imagem de compartilhamento. A foto é utilizada <strong>apenas para gerar a imagem localmente</strong> e nunca é armazenada ou enviada a nossos servidores. O compartilhamento funciona mesmo sem conceder esta permissão.</p>
+          </div>
+        </li>
+      </ul>
+
+      <h3>5. Direitos do Usuário (LGPD — Lei n.º 13.709/2018)</h3>
+      <p>De acordo com a Lei Geral de Proteção de Dados, você tem os seguintes direitos:</p>
+      <ul class="rights-list">
+        <li class="rights-item"><span class="rights-dot"></span><span><strong>Confirmação e acesso:</strong> saber quais dados tratamos — descritos nesta Política.</span></li>
+        <li class="rights-item"><span class="rights-dot"></span><span><strong>Exclusão:</strong> delete o Aplicativo para dados locais; solicite via email para dados do Firebase Analytics.</span></li>
+        <li class="rights-item"><span class="rights-dot"></span><span><strong>Oposição:</strong> você pode se opor ao tratamento de dados para analytics entrando em contato conosco.</span></li>
+        <li class="rights-item"><span class="rights-dot"></span><span><strong>Revogação do consentimento:</strong> desative a coleta de analytics a qualquer momento nas configurações do Aplicativo.</span></li>
+        <li class="rights-item"><span class="rights-dot"></span><span><strong>Portabilidade:</strong> seus dados estão no dispositivo; utilize os mecanismos nativos do iOS para exportá-los.</span></li>
+      </ul>
+
+      <h3>6. Segurança dos Dados</h3>
+      <p>Todo o tráfego com Firebase e RevenueCat é criptografado (HTTPS/TLS). Dados sensíveis são armazenados em área protegida pelo sistema operacional iOS. Não armazenamos senhas, tokens de autenticação ou dados de cartão de crédito.</p>
+
+      <h3>7. Retenção de Dados</h3>
+      <ul>
+        <li><strong>Dados locais:</strong> retidos até que o Aplicativo seja deletado.</li>
+        <li><strong>Firebase Analytics:</strong> 14 meses (política padrão do Google).</li>
+        <li><strong>Firebase Crashlytics:</strong> 90 dias.</li>
+        <li><strong>RevenueCat:</strong> enquanto a assinatura estiver ativa, mais o período de retenção fiscal aplicável.</li>
+      </ul>
+
+      <h3>8. Alterações nesta Política</h3>
+      <p>Podemos atualizar esta Política periodicamente. Notificaremos sobre alterações significativas por meio do Aplicativo. O uso continuado após as alterações constitui aceitação da Política atualizada.</p>
+
+      <h3>9. Encarregado de Dados (DPO)</h3>
+      <p><strong>Nome:</strong> Gabriel Oliveira<br>
+      <strong>Email:</strong> <a href="mailto:contato@altruistlabs.com.br">contato@altruistlabs.com.br</a><br>
+      <strong>Tempo de resposta:</strong> até 15 dias úteis</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     3. GERENCIAR ASSINATURA
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="assinatura">
+  <div class="wrapper">
+    <span class="section-badge">RevenueCat + App Store</span>
+    <h2 class="section-title">Gerenciar Assinatura</h2>
+
+    <div class="legal">
+
+      <h3>Verificar seu plano atual</h3>
+      <p>Abra o DevotionTime e acesse: <strong>Aba Home &rsaquo; Configurações &rsaquo; Plano Atual</strong>. Seu status Premium é verificado automaticamente a cada abertura do Aplicativo via RevenueCat.</p>
+
+      <h3>Cancelar assinatura mensal</h3>
+      <p>Assinaturas são gerenciadas diretamente pela Apple. Para cancelar:</p>
+      <ol class="steps">
+        <li><span class="step-num">1</span><p>Abra <strong>Ajustes</strong> no seu iPhone ou iPad.</p></li>
+        <li><span class="step-num">2</span><p>Toque em <strong>seu nome</strong> no topo da tela.</p></li>
+        <li><span class="step-num">3</span><p>Toque em <strong>Assinaturas</strong>.</p></li>
+        <li><span class="step-num">4</span><p>Localize <strong>DevotionTime</strong> na lista.</p></li>
+        <li><span class="step-num">5</span><p>Toque em <strong>Cancelar Assinatura</strong> (ou <em>Cancelar Período de Teste</em>, se aplicável).</p></li>
+      </ol>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="icon">📅</div>
+          <h4>Após cancelar</h4>
+          <p>Você mantém acesso Premium até o fim do período pago. Após o término, o plano retorna automaticamente ao gratuito.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">📚</div>
+          <h4>Histórico preservado</h4>
+          <p>Seu histórico de devocionais, streaks e marcos conquistados não são perdidos ao cancelar.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🔒</div>
+          <h4>Limite gratuito</h4>
+          <p>Após o downgrade: 1 alarme de oração e 7 sessões devocionais disponíveis.</p>
+        </div>
+      </div>
+
+      <h3>Restaurar compras</h3>
+      <p>Se você já adquiriu o Premium e está usando um novo dispositivo ou reinstalou o Aplicativo:</p>
+      <ol class="steps">
+        <li><span class="step-num">1</span><p>Abra o <strong>DevotionTime</strong>.</p></li>
+        <li><span class="step-num">2</span><p>Acesse <strong>Configurações &rsaquo; Assinatura</strong>.</p></li>
+        <li><span class="step-num">3</span><p>Toque em <strong>Restaurar Compras</strong>.</p></li>
+        <li><span class="step-num">4</span><p>O Aplicativo verificará seu recibo junto à App Store via RevenueCat e reativará seu acesso.</p></li>
+      </ol>
+
+      <h3>Solicitar reembolso</h3>
+      <p>Reembolsos são processados exclusivamente pela Apple. O DevotionTime não pode processar reembolsos diretamente.</p>
+      <ol class="steps">
+        <li><span class="step-num">1</span><p>Acesse <strong>reportaproblem.apple.com</strong> no navegador.</p></li>
+        <li><span class="step-num">2</span><p>Faça login com seu <strong>Apple ID</strong>.</p></li>
+        <li><span class="step-num">3</span><p>Localize a compra do <strong>DevotionTime</strong>.</p></li>
+        <li><span class="step-num">4</span><p>Siga as instruções para solicitar o reembolso.</p></li>
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     4. EXCLUSÃO DE DADOS
+══════════════════════════════════════════════════════════ -->
+<section class="section alt" id="exclusao">
+  <div class="wrapper">
+    <span class="section-badge">LGPD — Art. 18</span>
+    <h2 class="section-title">Exclusão de Dados</h2>
+
+    <div class="summary-box">
+      Como o DevotionTime não possui sistema de contas, <strong>todos os seus dados pessoais estão armazenados localmente no seu dispositivo</strong>. A exclusão é simples e imediata.
+    </div>
+
+    <div class="legal">
+
+      <h3>Excluir todos os dados locais</h3>
+      <p>Para remover permanentemente todos os dados do DevotionTime do seu dispositivo — alarmes, histórico de devocionais, marcos, preferências e cache:</p>
+      <ol class="steps">
+        <li><span class="step-num">1</span><p>Mantenha o dedo pressionado sobre o ícone do <strong>DevotionTime</strong> na tela inicial.</p></li>
+        <li><span class="step-num">2</span><p>Toque em <strong>Remover App</strong>.</p></li>
+        <li><span class="step-num">3</span><p>Confirme tocando em <strong>Apagar App</strong>.</p></li>
+      </ol>
+      <div class="alert">
+        <span class="alert-icon">⚠</span>
+        <span>Esta ação é <strong>irreversível</strong>. Todo o histórico de devocionais, streaks e marcos serão permanentemente apagados.</span>
+      </div>
+
+      <h3>Exclusão de dados de analytics (Firebase)</h3>
+      <p>Dados de uso anônimos coletados pelo Firebase Analytics serão automaticamente <strong>anonimizados e deletados em até 14 meses</strong>, conforme a política de retenção do Google.</p>
+      <p>Para solicitar a exclusão antecipada, envie um email com:</p>
+      <ul>
+        <li><strong>Assunto:</strong> "Exclusão de Dados — DevotionTime"</li>
+        <li><strong>Conteúdo:</strong> Seu identificador anônimo do Firebase (disponível em <em>Configurações &rsaquo; Sobre</em> no Aplicativo)</li>
+        <li><strong>Email:</strong> <a href="mailto:contato@altruistlabs.com.br">contato@altruistlabs.com.br</a></li>
+      </ul>
+      <div class="alert">
+        <span class="alert-icon">ℹ</span>
+        <span>Como os dados do Firebase são completamente anônimos, <strong>não conseguimos associá-los a você</strong> sem o identificador anônimo do Aplicativo.</span>
+      </div>
+
+      <h3>Dados de assinatura (RevenueCat)</h3>
+      <p>Dados de transação são retidos pela RevenueCat enquanto necessário para fins fiscais e legais. Para solicitar informações sobre esses dados, entre em contato diretamente com a RevenueCat em <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     5. CONTATO
+══════════════════════════════════════════════════════════ -->
+<section class="section" id="contato">
+  <div class="wrapper">
+    <span class="section-badge">Suporte</span>
+    <h2 class="section-title">Contato</h2>
+
+    <div class="contact-card">
+      <div>
+        <h3>Fale conosco</h3>
+        <p>Para dúvidas, questões de privacidade, sugestões ou suporte técnico.</p>
+        <a class="contact-email" href="mailto:contato@altruistlabs.com.br">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          contato@altruistlabs.com.br
+        </a>
+        <ul class="contact-topics">
+          <li>Dúvidas sobre o funcionamento do Aplicativo</li>
+          <li>Solicitações relacionadas à LGPD / privacidade</li>
+          <li>Reportar bugs ou problemas técnicos</li>
+          <li>Sugestões de melhoria</li>
+          <li>Questões sobre assinatura ou compras</li>
+        </ul>
+      </div>
+      <div class="contact-meta">
+        <div class="label">Resposta em</div>
+        <div class="value">2–5 dias</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand"><span class="cross">✝</span> DevotionTime</span>
+    <ul class="footer-links">
+      <li><a href="#termos">Termos</a></li>
+      <li><a href="#privacidade">Privacidade</a></li>
+      <li><a href="#assinatura">Assinatura</a></li>
+      <li><a href="#exclusao">Exclusão de Dados</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="index.html">← Voltar ao site</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Gabriel Oliveira</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+</body>
+</html>

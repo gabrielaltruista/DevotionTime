@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevotionTime — Seu tempo com Deus. Todo dia.</title>
+    <meta
+      name="description"
+      content="Pare de deixar o celular roubar o seu tempo com Deus. DevotionTime bloqueia apps para que você complete seu devocional antes de abrir qualquer outra coisa."
+    />
+    <link rel="icon" type="image/png" href="Icon.png" />
+    <link rel="apple-touch-icon" href="Icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --gold: #f2a84c;
+        --gold-bg: rgba(242, 168, 76, 0.1);
+        --black: #0c0c0c;
+        --gray: #444444;
+        --muted: #909090;
+        --border: #e6e6e6;
+        --white: #ffffff;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        color: var(--black);
+        background: var(--white);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 54px;
+      }
+      .nav-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--black);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+      .nav-brand .cross {
+        color: var(--gold);
+        font-size: 0.95rem;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      .lang-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        color: var(--muted);
+        padding: 0.2rem 0.3rem;
+        border-radius: 4px;
+        transition: color 0.18s;
+      }
+      .lang-btn:hover {
+        color: var(--black);
+      }
+      .lang-btn.active {
+        color: var(--black);
+      }
+      .lang-sep {
+        font-size: 0.7rem;
+        color: var(--border);
+      }
+      .nav-cta {
+        background: var(--black);
+        color: var(--white);
+        font-family: "Inter", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        padding: 0.48rem 1.2rem;
+        border-radius: 100px;
+        text-decoration: none;
+        transition: opacity 0.18s;
+        white-space: nowrap;
+      }
+      .nav-cta:hover {
+        opacity: 0.75;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        padding: 11rem 2rem 7rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 2rem;
+      }
+      .hero-eyebrow::before,
+      .hero-eyebrow::after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.5;
+      }
+      .hero h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+        font-weight: 600;
+        line-height: 1.06;
+        color: var(--black);
+        letter-spacing: -0.015em;
+        margin-bottom: 1.5rem;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .hero-sub {
+        font-size: 1rem;
+        color: var(--gray);
+        line-height: 1.7;
+        margin-bottom: 3rem;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--black);
+        color: var(--white);
+        font-family: "Inter", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 500;
+        padding: 0.9rem 2rem;
+        border-radius: 100px;
+        text-decoration: none;
+        transition: opacity 0.18s;
+        white-space: nowrap;
+      }
+      .btn-primary:hover {
+        opacity: 0.75;
+      }
+      .btn-link {
+        font-size: 0.88rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.18s;
+      }
+      .btn-link:hover {
+        color: var(--black);
+      }
+
+      /* ── DIVIDER ── */
+      .divider {
+        border: none;
+        border-top: 1px solid var(--border);
+      }
+
+      /* ── HOOK QUOTE ── */
+      .section-quote {
+        padding: 7rem 2rem;
+        text-align: center;
+      }
+      blockquote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.55rem, 3.5vw, 2.3rem);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--black);
+        line-height: 1.45;
+        max-width: 620px;
+        margin: 0 auto 1.25rem;
+        position: relative;
+      }
+      blockquote::before {
+        content: '"';
+        font-size: 5rem;
+        color: var(--gold);
+        opacity: 0.25;
+        position: absolute;
+        top: -1.5rem;
+        left: -0.5rem;
+        font-family: "Cormorant Garamond", serif;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .quote-caption {
+        font-size: 0.82rem;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── FEATURES ── */
+      .section-features {
+        padding: 6rem 2rem;
+      }
+      .section-inner {
+        max-width: 880px;
+        margin: 0 auto;
+      }
+      .section-label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-align: center;
+        margin-bottom: 0.9rem;
+      }
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 4vw, 2.8rem);
+        font-weight: 600;
+        color: var(--black);
+        line-height: 1.15;
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .feature {
+        padding: 2.5rem 2rem;
+        border-right: 1px solid var(--border);
+      }
+      .feature:last-child {
+        border-right: none;
+      }
+      .feature-dot {
+        width: 38px;
+        height: 38px;
+        background: var(--gold-bg);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        margin-bottom: 1.25rem;
+      }
+      .feature h3 {
+        font-size: 0.93rem;
+        font-weight: 500;
+        color: var(--black);
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+      }
+      .feature p {
+        font-size: 0.86rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      /* ── DIFFERENTIATOR ── */
+      .section-diff {
+        padding: 8rem 2rem;
+        background: var(--black);
+      }
+      .diff-inner {
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .diff-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 1.5rem;
+      }
+      .diff-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.9rem, 4vw, 3rem);
+        font-weight: 600;
+        line-height: 1.15;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+      .diff-body {
+        font-size: 0.97rem;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.8;
+        margin-bottom: 3rem;
+      }
+      .diff-callout {
+        background: rgba(242, 168, 76, 0.08);
+        border: 1px solid rgba(242, 168, 76, 0.25);
+        border-radius: 12px;
+        padding: 1.5rem 2rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.55;
+      }
+
+      /* ── WAITLIST ── */
+      .section-waitlist {
+        padding: 9rem 2rem;
+        text-align: center;
+      }
+      .waitlist-inner {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .waitlist-inner h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 600;
+        line-height: 1.12;
+        margin-bottom: 0.75rem;
+      }
+      .waitlist-inner > p {
+        font-size: 0.95rem;
+        color: var(--gray);
+        margin-bottom: 2.5rem;
+      }
+      .waitlist-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+      .form-field {
+        position: relative;
+      }
+      .form-field-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        pointer-events: none;
+      }
+      .waitlist-form input {
+        width: 100%;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        outline: none;
+        padding: 0.85rem 1rem 0.85rem 2.75rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 300;
+        background: var(--white);
+        color: var(--black);
+        transition: border-color 0.18s;
+      }
+      .waitlist-form input:focus {
+        border-color: var(--black);
+      }
+      .waitlist-form input::placeholder {
+        color: var(--muted);
+      }
+      .waitlist-form button {
+        width: 100%;
+        background: var(--black);
+        color: var(--white);
+        border: none;
+        border-radius: 10px;
+        padding: 0.9rem 1.4rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: opacity 0.18s;
+        margin-top: 0.15rem;
+      }
+      .waitlist-form button:hover {
+        opacity: 0.8;
+      }
+      .waitlist-form button:disabled {
+        cursor: default;
+      }
+      .waitlist-form button.loading {
+        opacity: 0.6;
+        cursor: wait;
+      }
+      .form-error {
+        font-size: 0.78rem;
+        color: #c0392b;
+        margin-top: 0.5rem;
+        display: none;
+      }
+      .form-error.visible {
+        display: block;
+      }
+      .field-optional {
+        font-size: 0.72rem;
+        color: var(--muted);
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+      .waitlist-note {
+        font-size: 0.76rem;
+        color: var(--muted);
+        margin-top: 1rem;
+      }
+      .waitlist-note a {
+        color: var(--muted);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .waitlist-note a:hover {
+        color: var(--black);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 2rem;
+      }
+      .footer-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--black);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .footer-brand .cross {
+        color: var(--gold);
+      }
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        font-size: 0.77rem;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.18s;
+      }
+      .footer-links a:hover {
+        color: var(--black);
+      }
+      .footer-copy {
+        font-size: 0.77rem;
+        color: var(--muted);
+      }
+
+      /* ── ANIMATIONS ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(14px);
+        animation: fadeIn 0.65s ease forwards;
+      }
+      .d1 {
+        animation-delay: 0.05s;
+      }
+      .d2 {
+        animation-delay: 0.15s;
+      }
+      .d3 {
+        animation-delay: 0.25s;
+      }
+      .d4 {
+        animation-delay: 0.35s;
+      }
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 680px) {
+        .hero {
+          padding: 8rem 1.5rem 5rem;
+        }
+        .section-quote,
+        .section-features,
+        .section-waitlist {
+          padding: 4.5rem 1.5rem;
+        }
+        .section-diff {
+          padding: 5rem 1.5rem;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .feature {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .feature:last-child {
+          border-bottom: none;
+        }
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .footer-links {
+          gap: 1rem;
+        }
+        .nav-right {
+          gap: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-inner">
+        <a href="#" class="nav-brand">
+          <span class="cross">✝</span>
+          DevotionTime
+        </a>
+        <div class="nav-right">
+          <div class="lang-toggle" role="group" aria-label="Language">
+            <button id="btn-pt" class="lang-btn active" onclick="setLang('pt')">
+              PT
+            </button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button id="btn-en" class="lang-btn" onclick="setLang('en')">
+              EN
+            </button>
+          </div>
+          <a href="#lista" class="nav-cta" data-i18n="nav_cta"
+            >Entrar na lista</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="hero-eyebrow fade-in d1" data-i18n="hero_eyebrow"
+        >Devocionais Diários · iOS</span
+      >
+      <h1 class="fade-in d2" data-i18n-html="hero_h1">
+        Pare de deixar o celular roubar o seu <em>tempo com Deus.</em>
+      </h1>
+      <p class="hero-sub fade-in d3" data-i18n="hero_sub">
+        DevotionTime bloqueia tudo o mais até você terminar seu devocional. Pela
+        primeira vez, você vai conseguir criar o hábito de verdade.
+      </p>
+      <div class="hero-actions fade-in d4">
+        <a href="#lista" class="btn-primary" data-i18n="hero_cta"
+          >Entrar na lista de espera</a
+        >
+        <a href="#como" class="btn-link" data-i18n="hero_how"
+          >Como funciona →</a
+        >
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- HOOK QUOTE -->
+    <section class="section-quote reveal">
+      <blockquote data-i18n="quote_text">
+        Você abre o celular de manhã com a intenção de ler a Bíblia. 20 minutos
+        depois você ainda está no Instagram.
+      </blockquote>
+      <p class="quote-caption" data-i18n="quote_caption">
+        Se isso já aconteceu com você, o DevotionTime foi feito pra você.
+      </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- FEATURES -->
+    <section class="section-features" id="como">
+      <div class="section-inner">
+        <span class="section-label reveal" data-i18n="feat_label"
+          >Como funciona</span
+        >
+        <h2 class="section-title reveal" data-i18n="feat_title">
+          Simples. Direto. Eficaz.
+        </h2>
+        <div class="features-grid reveal">
+          <div class="feature">
+            <div class="feature-dot">🔒</div>
+            <h3 data-i18n="feat1_h">Bloqueio de apps</h3>
+            <p data-i18n="feat1_p">
+              Configure quais apps ficam bloqueados durante o devocional. Seu
+              celular vira ferramenta — não distração.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-dot">✝</div>
+            <h3 data-i18n="feat2_h">Devocionais para 365 dias</h3>
+            <p data-i18n="feat2_p">
+              Conteúdo diário com versículo, reflexão e oração. Tudo que você
+              precisa para começar o dia com Deus.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-dot">🔥</div>
+            <h3 data-i18n="feat3_h">Streak e progresso</h3>
+            <p data-i18n="feat3_p">
+              Acompanhe sua sequência de dias. Compartilhe marcos com amigos e
+              crie responsabilidade mútua.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFFERENTIATOR -->
+    <section class="section-diff">
+      <div class="diff-inner reveal">
+        <span class="diff-label" data-i18n="diff_label">O diferencial</span>
+        <h2 class="diff-title" data-i18n="diff_title">
+          Não é mais um devocional. É o que realmente te ajuda a criar o hábito.
+        </h2>
+        <p class="diff-body" data-i18n="diff_body">
+          Outros apps te dão o conteúdo. O DevotionTime te dá a estrutura pra
+          você realmente completar. O bloqueio de apps transforma o devocional
+          de "quero fazer" em "fiz".
+        </p>
+        <div class="diff-callout" data-i18n="diff_callout">
+          "Com o DevotionTime, pela primeira vez, você vai conseguir terminar
+          seu devocional antes de abrir qualquer outra coisa."
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST -->
+    <section class="section-waitlist" id="lista">
+      <div class="waitlist-inner reveal">
+        <h2 data-i18n="wl_title">Entre na lista de espera</h2>
+        <p data-i18n="wl_sub">
+          Seja um dos primeiros a usar o DevotionTime quando lançar na App
+          Store.
+        </p>
+        <p
+          id="waitlistCount"
+          style="
+            font-size: 0.82rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            margin-top: -1rem;
+            min-height: 1.2em;
+          "
+        ></p>
+
+        <form
+          class="waitlist-form"
+          id="waitlistForm"
+          onsubmit="handleSubmit(event)"
+          novalidate
+        >
+          <!-- Honeypot anti-spam: invisível para humanos, bots preenchem -->
+          <div
+            style="
+              position: absolute;
+              left: -9999px;
+              top: -9999px;
+              opacity: 0;
+              height: 0;
+              overflow: hidden;
+            "
+            aria-hidden="true"
+          >
+            <input
+              type="text"
+              id="inputHoneypot"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="form-field">
+            <span class="form-field-icon">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,12 2,6" />
+              </svg>
+            </span>
+            <input
+              type="email"
+              id="inputEmail"
+              data-i18n-ph="wl_email_ph"
+              placeholder="seu@email.com"
+              required
+            />
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="form-field">
+            <span class="form-field-icon">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                />
+              </svg>
+            </span>
+            <input
+              type="tel"
+              id="inputWa"
+              data-i18n-ph="wl_wa_ph"
+              placeholder="+55 11 99999-9999"
+            />
+            <span class="field-optional" data-i18n="wl_optional">opcional</span>
+          </div>
+
+          <!-- Como você soube -->
+          <div class="form-field">
+            <span class="form-field-icon">
+              <svg
+                width="15"
+                height="15"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4M12 8h.01" />
+              </svg>
+            </span>
+            <select
+              id="inputSource"
+              style="
+                width: 100%;
+                border: 1.5px solid var(--border);
+                border-radius: 10px;
+                outline: none;
+                padding: 0.85rem 1rem 0.85rem 2.75rem;
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 0.88rem;
+                font-weight: 300;
+                background: var(--white);
+                color: var(--black);
+                transition: border-color 0.18s;
+                appearance: none;
+                -webkit-appearance: none;
+                cursor: pointer;
+              "
+            >
+              <option value="" data-i18n-opt="src_default">
+                Como você soube do DevotionTime? (opcional)
+              </option>
+              <option value="instagram" data-i18n-opt="src_ig">
+                Instagram
+              </option>
+              <option value="tiktok" data-i18n-opt="src_tt">TikTok</option>
+              <option value="amigo" data-i18n-opt="src_friend">
+                Indicação de amigo
+              </option>
+              <option value="igreja" data-i18n-opt="src_church">
+                Igreja / Líder
+              </option>
+              <option value="google" data-i18n-opt="src_google">Google</option>
+              <option value="outro" data-i18n-opt="src_other">Outro</option>
+            </select>
+          </div>
+
+          <button type="submit" data-i18n="wl_btn">Entrar na lista</button>
+        </form>
+
+        <p class="form-error" id="formError" data-i18n="wl_error"></p>
+        <p class="waitlist-note">
+          <span data-i18n="wl_note">iOS 17+ · Sem spam.</span>
+          &nbsp;<a href="legal.html" data-i18n="wl_legal"
+            >Privacidade e Termos.</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-brand"
+          ><span class="cross">✝</span> DevotionTime</span
+        >
+        <ul class="footer-links">
+          <li>
+            <a href="legal.html#termos" data-i18n="footer_terms"
+              >Termos de Serviço</a
+            >
+          </li>
+          <li>
+            <a href="legal.html#privacidade" data-i18n="footer_privacy"
+              >Privacidade</a
+            >
+          </li>
+          <li>
+            <a href="legal.html#assinatura" data-i18n="footer_sub"
+              >Assinatura</a
+            >
+          </li>
+          <li>
+            <a href="legal.html#exclusao" data-i18n="footer_delete"
+              >Exclusão de Dados</a
+            >
+          </li>
+          <li>
+            <a href="legal.html#contato" data-i18n="footer_contact">Contato</a>
+          </li>
+        </ul>
+        <span class="footer-copy">© 2026 Gabriel Oliveira</span>
+      </div>
+    </footer>
+
+    <script>
+      /* ── GOOGLE SHEETS ENDPOINT ── */
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbwKPdiy_Fq5JlssADIOMHBl4cHiB1ARZS4qTkLZBx2nkPgjTgJylPqbgYb9zzLFrXZg/exec"; // cole aqui a URL do Apps Script
+
+      /* ── TRANSLATIONS ── */
+      const T = {
+        pt: {
+          nav_cta: "Entrar na lista",
+          hero_eyebrow: "Devocionais Diários · iOS",
+          hero_h1:
+            "Pare de deixar o celular roubar o seu <em>tempo com Deus.</em>",
+          hero_sub:
+            "DevotionTime bloqueia tudo o mais até você terminar seu devocional. Pela primeira vez, você vai conseguir criar o hábito de verdade.",
+          hero_cta: "Entrar na lista de espera",
+          hero_how: "Como funciona →",
+          quote_text:
+            "Você abre o celular de manhã com a intenção de ler a Bíblia. 20 minutos depois você ainda está no Instagram.",
+          quote_caption:
+            "Se isso já aconteceu com você, o DevotionTime foi feito pra você.",
+          feat_label: "Como funciona",
+          feat_title: "Simples. Direto. Eficaz.",
+          feat1_h: "Bloqueio de apps",
+          feat1_p:
+            "Configure quais apps ficam bloqueados durante o devocional. Seu celular vira ferramenta — não distração.",
+          feat2_h: "Devocionais para 365 dias",
+          feat2_p:
+            "Conteúdo diário com versículo, reflexão e oração. Tudo que você precisa para começar o dia com Deus.",
+          feat3_h: "Streak e progresso",
+          feat3_p:
+            "Acompanhe sua sequência de dias. Compartilhe marcos com amigos e crie responsabilidade mútua.",
+          diff_label: "O diferencial",
+          diff_title:
+            "Não é mais um devocional. É o que realmente te ajuda a criar o hábito.",
+          diff_body:
+            'Outros apps te dão o conteúdo. O DevotionTime te dá a estrutura pra você realmente completar. O bloqueio de apps transforma o devocional de "quero fazer" em "fiz".',
+          diff_callout:
+            '"Com o DevotionTime, pela primeira vez, você vai conseguir terminar seu devocional antes de abrir qualquer outra coisa."',
+          wl_title: "Entre na lista de espera",
+          wl_sub:
+            "Seja um dos primeiros a usar o DevotionTime quando lançar na App Store.",
+          wl_email_ph: "seu@email.com",
+          wl_wa_ph: "+55 11 99999-9999",
+          wl_optional: "opcional",
+          wl_btn: "Entrar na lista",
+          wl_note: "iOS 17+ · Sem spam.",
+          wl_legal: "Privacidade e Termos.",
+          wl_success: "Na lista ✓",
+          wl_loading: "Enviando…",
+          wl_error: "Algo deu errado. Tente novamente.",
+          src_default: "Como você soube do DevotionTime? (opcional)",
+          src_ig: "Instagram",
+          src_tt: "TikTok",
+          src_friend: "Indicação de amigo",
+          src_church: "Igreja / Líder",
+          src_google: "Google",
+          src_other: "Outro",
+          footer_terms: "Termos de Serviço",
+          footer_privacy: "Privacidade",
+          footer_sub: "Assinatura",
+          footer_delete: "Exclusão de Dados",
+          footer_contact: "Contato",
+        },
+        en: {
+          nav_cta: "Join waitlist",
+          hero_eyebrow: "Daily Devotionals · iOS",
+          hero_h1: "Stop letting your phone steal your <em>time with God.</em>",
+          hero_sub:
+            "DevotionTime blocks everything else until you finish your devotional. For the first time, you'll actually build the habit.",
+          hero_cta: "Join the waitlist",
+          hero_how: "How it works →",
+          quote_text:
+            "You pick up your phone in the morning intending to read the Bible. 20 minutes later you're still on Instagram.",
+          quote_caption:
+            "If this has ever happened to you, DevotionTime was made for you.",
+          feat_label: "How it works",
+          feat_title: "Simple. Focused. Effective.",
+          feat1_h: "App blocking",
+          feat1_p:
+            "Choose which apps get blocked during your devotional. Your phone becomes a tool — not a distraction.",
+          feat2_h: "365 days of devotionals",
+          feat2_p:
+            "Daily content with a verse, reflection, and prayer. Everything you need to start the day with God.",
+          feat3_h: "Streak & progress",
+          feat3_p:
+            "Track your daily streak. Share milestones with friends and build mutual accountability.",
+          diff_label: "The difference",
+          diff_title:
+            "Not just another devotional. The one that actually helps you build the habit.",
+          diff_body:
+            'Other apps give you the content. DevotionTime gives you the structure to actually finish. App blocking turns devotionals from something you "want to do" into something you did.',
+          diff_callout:
+            '"With DevotionTime, for the first time, you\'ll actually finish your devotional before opening anything else."',
+          wl_title: "Join the waitlist",
+          wl_sub:
+            "Be among the first to use DevotionTime when it launches on the App Store.",
+          wl_email_ph: "your@email.com",
+          wl_wa_ph: "+1 555 000-0000",
+          wl_optional: "optional",
+          wl_btn: "Join the list",
+          wl_note: "iOS 17+ · No spam.",
+          wl_legal: "Privacy & Terms.",
+          wl_success: "You're in ✓",
+          wl_loading: "Sending…",
+          wl_error: "Something went wrong. Please try again.",
+          src_default: "How did you hear about DevotionTime? (optional)",
+          src_ig: "Instagram",
+          src_tt: "TikTok",
+          src_friend: "Friend referral",
+          src_church: "Church / Leader",
+          src_google: "Google",
+          src_other: "Other",
+          footer_terms: "Terms of Service",
+          footer_privacy: "Privacy",
+          footer_sub: "Subscription",
+          footer_delete: "Data Deletion",
+          footer_contact: "Contact",
+        },
+      };
+
+      let currentLang = "pt";
+
+      function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+        document.documentElement.dataset.lang = lang;
+
+        document
+          .getElementById("btn-pt")
+          .classList.toggle("active", lang === "pt");
+        document
+          .getElementById("btn-en")
+          .classList.toggle("active", lang === "en");
+
+        const dict = T[lang];
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.dataset.i18n;
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+          const key = el.dataset.i18nHtml;
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+
+        document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
+          const key = el.dataset.i18nPh;
+          if (dict[key] !== undefined) el.placeholder = dict[key];
+        });
+
+        document.querySelectorAll("[data-i18n-opt]").forEach((el) => {
+          const key = el.dataset.i18nOpt;
+          if (dict[key] !== undefined) el.textContent = dict[key];
+        });
+      }
+
+      /* ── FORM SUBMIT ── */
+      async function handleSubmit(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        const inputs = form.querySelectorAll("input");
+        const errEl = document.getElementById("formError");
+
+        const email = document.getElementById("inputEmail").value.trim();
+        const whatsapp = document.getElementById("inputWa").value.trim();
+        const source = document.getElementById("inputSource").value;
+        const honeypot = document.getElementById("inputHoneypot").value;
+
+        // Proteção honeypot: bot preencheu o campo invisível — simula sucesso silenciosamente
+        if (honeypot) {
+          btn.textContent = T[currentLang].wl_success;
+          btn.style.background = "#F2A84C";
+          btn.style.color = "#0c0c0c";
+          return;
+        }
+
+        // reset error
+        errEl.classList.remove("visible");
+
+        // loading state
+        btn.textContent = T[currentLang].wl_loading;
+        btn.classList.add("loading");
+        btn.disabled = true;
+        inputs.forEach((i) => (i.disabled = true));
+
+        try {
+          await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email,
+              whatsapp,
+              source,
+              lang: currentLang,
+            }),
+          });
+
+          // com no-cors não conseguimos ler o status, assumimos sucesso
+          btn.textContent = T[currentLang].wl_success;
+          btn.classList.remove("loading");
+          btn.style.background = "#F2A84C";
+          btn.style.color = "#0c0c0c";
+        } catch (err) {
+          // erro de rede (offline, DNS, etc.)
+          errEl.textContent = T[currentLang].wl_error;
+          errEl.classList.add("visible");
+
+          btn.textContent = T[currentLang].wl_btn;
+          btn.classList.remove("loading");
+          btn.disabled = false;
+          inputs.forEach((i) => (i.disabled = false));
+        }
+      }
+
+      /* ── SCROLL REVEAL ── */
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          }),
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      /* ── DETECT BROWSER LANGUAGE ── */
+      (function detectLang() {
+        const saved = localStorage.getItem("dt_lang");
+        if (saved === "en") {
+          setLang("en");
+          return;
+        }
+        const nav = (
+          navigator.language ||
+          navigator.userLanguage ||
+          ""
+        ).toLowerCase();
+        if (!nav.startsWith("pt") && saved !== "pt") setLang("en");
+      })();
+
+      /* ── WAITLIST COUNTER ── */
+      (function loadCount() {
+        const el = document.getElementById("waitlistCount");
+        if (!el || !SCRIPT_URL) return;
+        fetch(SCRIPT_URL + "?action=count")
+          .then((r) => r.json())
+          .then((data) => {
+            if (data && data.count > 0) {
+              el.textContent =
+                currentLang === "pt"
+                  ? `🔥 ${data.count} pessoas já na lista`
+                  : `🔥 ${data.count} people already on the list`;
+            }
+          })
+          .catch(() => {});
+      })();
+
+      /* ── PERSIST LANG CHOICE ── */
+      document
+        .getElementById("btn-pt")
+        .addEventListener("click", () => localStorage.setItem("dt_lang", "pt"));
+      document
+        .getElementById("btn-en")
+        .addEventListener("click", () => localStorage.setItem("dt_lang", "en"));
+    </script>
+  </body>
+</html>

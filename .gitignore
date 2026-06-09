@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# Except HTML and PNG files
+!*.html
+!*.png
+!.gitignore
