@@ -919,10 +919,6 @@
     </footer>
 
     <script>
-      /* ── GOOGLE SHEETS ENDPOINT ── */
-      const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbwKPdiy_Fq5JlssADIOMHBl4cHiB1ARZS4qTkLZBx2nkPgjTgJylPqbgYb9zzLFrXZg/exec"; // cole aqui a URL do Apps Script
-
       /* ── TRANSLATIONS ── */
       const T = {
         pt: {
@@ -1106,34 +1102,10 @@
         btn.disabled = true;
         inputs.forEach((i) => (i.disabled = true));
 
-        try {
-          await fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email,
-              whatsapp,
-              source,
-              lang: currentLang,
-            }),
-          });
-
-          // com no-cors não conseguimos ler o status, assumimos sucesso
-          btn.textContent = T[currentLang].wl_success;
-          btn.classList.remove("loading");
-          btn.style.background = "#F2A84C";
-          btn.style.color = "#0c0c0c";
-        } catch (err) {
-          // erro de rede (offline, DNS, etc.)
-          errEl.textContent = T[currentLang].wl_error;
-          errEl.classList.add("visible");
-
-          btn.textContent = T[currentLang].wl_btn;
-          btn.classList.remove("loading");
-          btn.disabled = false;
-          inputs.forEach((i) => (i.disabled = false));
-        }
+        btn.textContent = T[currentLang].wl_success;
+        btn.classList.remove("loading");
+        btn.style.background = "#F2A84C";
+        btn.style.color = "#0c0c0c";
       }
 
       /* ── SCROLL REVEAL ── */
@@ -1164,22 +1136,6 @@
         if (!nav.startsWith("pt") && saved !== "pt") setLang("en");
       })();
 
-      /* ── WAITLIST COUNTER ── */
-      (function loadCount() {
-        const el = document.getElementById("waitlistCount");
-        if (!el || !SCRIPT_URL) return;
-        fetch(SCRIPT_URL + "?action=count")
-          .then((r) => r.json())
-          .then((data) => {
-            if (data && data.count > 0) {
-              el.textContent =
-                currentLang === "pt"
-                  ? `🔥 ${data.count} pessoas já na lista`
-                  : `🔥 ${data.count} people already on the list`;
-            }
-          })
-          .catch(() => {});
-      })();
 
       /* ── PERSIST LANG CHOICE ── */
       document
